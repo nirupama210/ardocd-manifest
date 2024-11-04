@@ -25,4 +25,4 @@ spec:
       volumes:
       - name: label-studio-data
         persistentVolumeClaim:
-          claimName: label-studio- 
+          claimName: label-studio-pvc
