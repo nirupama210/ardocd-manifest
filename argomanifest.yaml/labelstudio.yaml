@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: label-studio-app
+  namespace: argocd 
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/nirupama210/ardocd-manifest.git'  
+    targetRevision: HEAD
+    path: ardocd-manifest  
+  destination:
+    server: 'https://kubernetes.default.svc'  
+    namespace: label-studio
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true  
+      selfHeal: true  
